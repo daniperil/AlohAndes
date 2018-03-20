@@ -1,0 +1,31 @@
+--------------------------------------------------------
+-- Archivo creado  - martes-marzo-20-2018   
+--------------------------------------------------------
+--------------------------------------------------------
+--  DDL for Table PROMOCIONSERVICIOS
+--------------------------------------------------------
+
+  CREATE TABLE "ISIS2304A461810"."PROMOCIONSERVICIOS" 
+   (	"IDPROMOCION" NUMBER, 
+	"IDSERVICIO" NUMBER
+   ) SEGMENT CREATION DEFERRED 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
+ NOCOMPRESS NOLOGGING
+  TABLESPACE "TBSPROD" ;
+--------------------------------------------------------
+--  DDL for Index TABLE1_PK1
+--------------------------------------------------------
+
+  CREATE UNIQUE INDEX "ISIS2304A461810"."TABLE1_PK1" ON "ISIS2304A461810"."PROMOCIONSERVICIOS" ("IDPROMOCION", "IDSERVICIO") 
+  PCTFREE 10 INITRANS 2 MAXTRANS 255 NOLOGGING 
+  TABLESPACE "TBSPROD" ;
+--------------------------------------------------------
+--  Constraints for Table PROMOCIONSERVICIOS
+--------------------------------------------------------
+
+  ALTER TABLE "ISIS2304A461810"."PROMOCIONSERVICIOS" ADD CONSTRAINT "TABLE1_PK2" PRIMARY KEY ("IDPROMOCION", "IDSERVICIO")
+  USING INDEX (CREATE UNIQUE INDEX "ISIS2304A461810"."TABLE1_PK1" ON "ISIS2304A461810"."PROMOCIONSERVICIOS" ("IDPROMOCION", "IDSERVICIO") 
+  PCTFREE 10 INITRANS 2 MAXTRANS 255 NOLOGGING 
+  TABLESPACE "TBSPROD" )  ENABLE;
+  ALTER TABLE "ISIS2304A461810"."PROMOCIONSERVICIOS" MODIFY ("IDSERVICIO" NOT NULL ENABLE);
+  ALTER TABLE "ISIS2304A461810"."PROMOCIONSERVICIOS" MODIFY ("IDPROMOCION" NOT NULL ENABLE);

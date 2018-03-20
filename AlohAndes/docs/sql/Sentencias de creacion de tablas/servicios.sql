@@ -1,0 +1,31 @@
+--------------------------------------------------------
+-- Archivo creado  - martes-marzo-20-2018   
+--------------------------------------------------------
+--------------------------------------------------------
+--  DDL for Table SERVICIOS
+--------------------------------------------------------
+
+  CREATE TABLE "ISIS2304A461810"."SERVICIOS" 
+   (	"IDSERVICIO" NUMBER GENERATED ALWAYS AS IDENTITY MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 1 CACHE 20 NOORDER  NOCYCLE , 
+	"DESCRIPCION" VARCHAR2(20 BYTE), 
+	"COSTOEXTRA" NUMBER
+   ) SEGMENT CREATION DEFERRED 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
+ NOCOMPRESS NOLOGGING
+  TABLESPACE "TBSPROD" ;
+--------------------------------------------------------
+--  DDL for Index SERVICIOS_PK
+--------------------------------------------------------
+
+  CREATE UNIQUE INDEX "ISIS2304A461810"."SERVICIOS_PK" ON "ISIS2304A461810"."SERVICIOS" ("IDSERVICIO") 
+  PCTFREE 10 INITRANS 2 MAXTRANS 255 NOLOGGING 
+  TABLESPACE "TBSPROD" ;
+--------------------------------------------------------
+--  Constraints for Table SERVICIOS
+--------------------------------------------------------
+
+  ALTER TABLE "ISIS2304A461810"."SERVICIOS" MODIFY ("IDSERVICIO" NOT NULL ENABLE);
+  ALTER TABLE "ISIS2304A461810"."SERVICIOS" ADD CONSTRAINT "SERVICIOS_PK" PRIMARY KEY ("IDSERVICIO")
+  USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255 NOLOGGING 
+  TABLESPACE "TBSPROD"  ENABLE;
+  ALTER TABLE "ISIS2304A461810"."SERVICIOS" ADD CONSTRAINT "SERVICIOS_CHK1" CHECK (COSTOEXTRA >= 0) ENABLE;
