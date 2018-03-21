@@ -29,13 +29,13 @@ public class Operador {
 	 * Registro en la camara de comercio 
 	 */
 	@JsonProperty(value="registrocc")
-	private String registrocc;
+	private Boolean registrocc;
 	
 	/**
 	 * Registro en la superintendencia financiera
 	 */
 	@JsonProperty(value="registrosi")
-	private String registrosi;
+	private Boolean registrosi;
 	
 	/**
 	 * Vinculo con la universidad
@@ -56,7 +56,7 @@ public class Operador {
 	 * @param registrosi - El registro en la superintendencia financiera
 	 * @param vinculo - El vinculo con la universidad
 	 */
-	public Operador(@JsonProperty(value="idoperador")Long id,@JsonProperty(value="nombre")String nombre,@JsonProperty(value="tipooperador")String tipooperador, @JsonProperty(value="registrocc") String registrocc, @JsonProperty(value="registrosi") String registrosi, @JsonProperty(value= "vinculo") String vinculo) {
+	public Operador(@JsonProperty(value="idoperador")Long id,@JsonProperty(value="nombre")String nombre,@JsonProperty(value="tipooperador")String tipooperador, @JsonProperty(value="registrocc") boolean registrocc, @JsonProperty(value="registrosi") boolean registrosi, @JsonProperty(value= "vinculo") String vinculo) {
 		this.idoperador= id;
 		this.nombre = nombre;
 		this.tipooperador = tipooperador;
@@ -95,19 +95,19 @@ public class Operador {
 		this.tipooperador = tipooperador;
 	}
 
-	public String getRegistrocc() {
+	public Boolean getRegistrocc() {
 		return registrocc;
 	}
 
-	public void setRegistrocc(String registrocc) {
+	public void setRegistrocc(Boolean registrocc) {
 		this.registrocc = registrocc;
 	}
 
-	public String getRegistrosi() {
+	public Boolean getRegistrosi() {
 		return registrosi;
 	}
 
-	public void setRegistrosi(String registrosi) {
+	public void setRegistrosi(Boolean registrosi) {
 		this.registrosi = registrosi;
 	}
 

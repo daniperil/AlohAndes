@@ -108,9 +108,8 @@ public class DAOServicio {
 	 */
 	public void addServicio(Servicio servicio) throws SQLException, Exception {
 
-		String sql = String.format("INSERT INTO %1$s.SERVICIOS (IDSERVICIO, DESCRIPCION, COSTOEXTRA) VALUES (%2$s, '%3$s', '%4$s')", 
+		String sql = String.format("INSERT INTO %1$s.SERVICIOS ( DESCRIPCION, COSTOEXTRA) VALUES (%2$s, '%3$s')", 
 				USUARIO, 
-				servicio.getId(), 
 				servicio.getDescripcion(),
 				servicio.getCostoextra());
 		System.out.println(sql);
@@ -135,7 +134,7 @@ public class DAOServicio {
 		sql.append (String.format (
 				"SET DESCRIPCION = '%1$s', COSTOEXTRA = '%2$s'",
 				servicio.getDescripcion(), servicio.getCostoextra()));
-		sql.append ("WHERE ID = " + servicio.getId ());
+		sql.append ("WHERE IDSERVICIO = " + servicio.getId());
 		System.out.println(sql);
 
 		PreparedStatement prepStmt = conn.prepareStatement(sql.toString());

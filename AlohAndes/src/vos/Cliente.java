@@ -1,6 +1,5 @@
 package vos;
 
-import java.sql.Date;
 
 import org.codehaus.jackson.annotate.JsonProperty;
 
@@ -36,8 +35,8 @@ public class Cliente {
 	/**
 	 * Contrasenia del cliente
 	 */
-	@JsonProperty(value="password")
-	private String password;
+	@JsonProperty(value="passw")
+	private String passw;
 
 
 	//----------------------------------------------------------------------------------------------------------------------------------
@@ -51,14 +50,14 @@ public class Cliente {
 	 * @param nombre - Nombre del cliente
 	 * @param vinculo - El vinculo con la universidad
 	 * @param login - El nombre de usuario característico
-	 * @param password - La contrasenia de acceso
+	 * @param passw - La contrasenia de acceso
 	 */
-	public Cliente(@JsonProperty(value="idcliente")Long id,@JsonProperty(value="nombre")String nombre , @JsonProperty(value="vinculo") String vinculo, @JsonProperty(value="login") String login, @JsonProperty(value="password") String password) {
+	public Cliente(@JsonProperty(value="idcliente")Long id,@JsonProperty(value="nombre")String nombre , @JsonProperty(value="vinculo") String vinculo, @JsonProperty(value="login") String login, @JsonProperty(value="passw") String passw) {
 		this.idcliente = id;
 		this.nombre = nombre;
 		this.vinculo = vinculo;
 		this.login = login;
-		this.password = password;
+		this.passw = passw;
 	}
 	//----------------------------------------------------------------------------------------------------------------------------------
 	// METODOS DE LA CLASE
@@ -105,13 +104,13 @@ public class Cliente {
 	}
 
 
-	public String getPassword() {
-		return password;
+	public String getpassw() {
+		return passw;
 	}
 
 
-	public void setPassword(String password) {
-		this.password = password;
+	public void setpassw(String passw) {
+		this.passw = passw;
 	}
 
 }

@@ -1,5 +1,5 @@
 --------------------------------------------------------
--- Archivo creado  - martes-marzo-20-2018   
+-- Archivo creado  - miércoles-marzo-21-2018   
 --------------------------------------------------------
 --------------------------------------------------------
 --  DDL for Table CLIENTES
@@ -10,7 +10,7 @@
 	"NOMBRE" VARCHAR2(20 BYTE), 
 	"VINCULO" VARCHAR2(20 CHAR), 
 	"LOGIN" VARCHAR2(20 BYTE), 
-	"PASSWORD" VARCHAR2(20 BYTE)
+	"PASSW" VARCHAR2(20 BYTE)
    ) SEGMENT CREATION IMMEDIATE 
   PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
  NOCOMPRESS NOLOGGING
@@ -32,7 +32,7 @@
 --  Constraints for Table CLIENTES
 --------------------------------------------------------
 
-  ALTER TABLE "ISIS2304A461810"."CLIENTES" MODIFY ("PASSWORD" NOT NULL ENABLE);
+  ALTER TABLE "ISIS2304A461810"."CLIENTES" MODIFY ("PASSW" NOT NULL ENABLE);
   ALTER TABLE "ISIS2304A461810"."CLIENTES" MODIFY ("LOGIN" NOT NULL ENABLE);
   ALTER TABLE "ISIS2304A461810"."CLIENTES" MODIFY ("NOMBRE" NOT NULL ENABLE);
   ALTER TABLE "ISIS2304A461810"."CLIENTES" MODIFY ("IDCLIENTE" NOT NULL ENABLE);
