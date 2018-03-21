@@ -67,6 +67,8 @@ public class DAOCliente {
 			while (rs.next()) {
 				clientes.add(convertResultSetToCliente(rs));
 			}
+			
+			ArrayList<Long> idsContratos = new ArrayList<Long>();
 			return clientes;
 		}
 

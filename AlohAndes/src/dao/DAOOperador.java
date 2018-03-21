@@ -66,7 +66,23 @@ public class DAOOperador {
 		ResultSet rs = prepStmt.executeQuery();
 
 		while (rs.next()) {
-			operadors.add(convertResultSetToOperador(rs));
+			Operador actual = convertResultSetToOperador(rs);
+			ArrayList<Long> alojamientosActual = new ArrayList<Long>();
+			
+			//Busco las ofertas de cada quien
+			String sql2 = String.format("SELECT IDALOJAMIENTO FROM %1$s.ALOJAMIENTOS WHERE IDOPERADOR= %2$s", USUARIO, actual.getIdoperador());
+
+			PreparedStatement prepStmt2 = conn.prepareStatement(sql2);
+			recursos.add(prepStmt2);
+			ResultSet rs2 = prepStmt2.executeQuery();
+			
+			while(rs2.next()) {
+				Long id = Long.parseLong(rs2.getString("IDALOJAMIENTO"));
+				alojamientosActual.add(id);
+			}
+			actual.setIdsAlojamientos(alojamientosActual);
+			operadors.add(actual);
+			
 		}
 		return operadors;
 	}
@@ -95,6 +111,18 @@ public class DAOOperador {
 		if(rs.next()) {
 			operador = convertResultSetToOperador(rs);
 		}
+		
+		ArrayList<Long> idsAlojamientos = new ArrayList<Long>();
+		
+		String sqllist = String.format("SELECT IDALOJAMIENTO FROM %1$s.ALOJAMIENTOS WHERE IDOPERADOR = %2$d", USUARIO, id);
+		PreparedStatement prepStmt2 = conn.prepareStatement(sqllist);
+		recursos.add(prepStmt2);
+		ResultSet rs2 = prepStmt.executeQuery();
+		
+		while(rs2.next()) {
+			idsAlojamientos.add(Long.parseLong(rs2.getString("IDALOJAMIENTO")));
+		}
+		operador.setIdsAlojamientos(idsAlojamientos);
 
 		return operador;
 	}
@@ -138,7 +166,7 @@ public class DAOOperador {
 				"SET NOMBRE= '%1$s', TIPOOPERADOR= '%2$s', REGISTROCC = '%3$s', REGISTROSI = '%4$s', VINCULO= '%5$s'",
 				operador.getNombre(), operador.getTipooperador(),operador.getRegistrocc(), operador.getRegistrosi(),operador.getVinculo()));
 		sql.append ("WHERE IDOPERADOR = " + operador.getIdoperador());
-		System.out.println(sql);
+		System.out.println(sql);		
 
 		PreparedStatement prepStmt = conn.prepareStatement(sql.toString());
 		recursos.add(prepStmt);
@@ -161,6 +189,15 @@ public class DAOOperador {
 		PreparedStatement prepStmt = conn.prepareStatement(sql);
 		recursos.add(prepStmt);
 		prepStmt.executeQuery();
+		
+		//Eliminado en cascada de las tablas
+//		String sql2 = String.format("DELETE FROM %1$s.ALOJAMIENTOS WHERE IDOPERADOR= %2$d", USUARIO, operador.getIdoperador());
+//
+//		System.out.println(sql2);
+//
+//		PreparedStatement prepStmt2 = conn.prepareStatement(sql2);
+//		recursos.add(prepStmt2);
+//		prepStmt2.executeQuery();
 	}
 
 

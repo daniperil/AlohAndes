@@ -1,6 +1,7 @@
 package vos;
 
 import java.sql.Date;
+import java.util.ArrayList;
 
 import org.codehaus.jackson.annotate.JsonProperty;
 
@@ -51,6 +52,11 @@ public class Contrato {
 	@JsonProperty(value = "estado")
 	private String estado;
 
+	/**
+	 * Los servicios que se especifican en el contrato
+	 */
+	@JsonProperty(value = "servicios")
+	private ArrayList<Long> servicios;
 	//----------------------------------------------------------------------------------------------------------------------------------
 	// METODO CONSTRUCTOR
 	//----------------------------------------------------------------------------------------------------------------------------------
@@ -74,6 +80,7 @@ public class Contrato {
 		this.estado = estado;
 		this.idalojamiento = idalojamiento;
 		this.idoperador = idoperador;
+		servicios = new ArrayList<Long>();
 	}
 
 
@@ -135,6 +142,16 @@ public class Contrato {
 
 	public void setEstado(String estado) {
 		this.estado = estado;
+	}
+
+
+	public ArrayList<Long> getServicios() {
+		return servicios;
+	}
+
+
+	public void setServicios(ArrayList<Long> servicios) {
+		this.servicios = servicios;
 	}
 
 }

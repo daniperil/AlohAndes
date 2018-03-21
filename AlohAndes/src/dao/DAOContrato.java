@@ -66,7 +66,21 @@ public class DAOContrato {
 		ResultSet rs = prepStmt.executeQuery();
 
 		while (rs.next()) {
-			contratos.add(convertResultSetToContrato(rs));
+			Contrato actual= convertResultSetToContrato(rs);
+			ArrayList<Long> idsServActual = new ArrayList<Long>();
+			String sql2 = String.format("SELECT IDSERVICIO FROM %1$s.SERVICIOSCONTRATADOS", USUARIO);
+
+			PreparedStatement prepStmt2 = conn.prepareStatement(sql2);
+			recursos.add(prepStmt2);
+			ResultSet rs2 = prepStmt2.executeQuery();
+					
+			while(rs2.next()) {
+				Long idActual = Long.parseLong(rs2.getString("IDSERVICIO"));
+				idsServActual.add(idActual);
+			}
+			actual.setServicios(idsServActual);
+			contratos.add(actual);
+			
 		}
 		return contratos;
 	}
@@ -95,6 +109,19 @@ public class DAOContrato {
 		if(rs.next()) {
 			contrato = convertResultSetToContrato(rs);
 		}
+		
+		ArrayList<Long> idsServActual = new ArrayList<Long>();
+		String sql2 = String.format("SELECT IDSERVICIO FROM %1$s.SERVICIOSCONTRATADOS WHERE IDCONTRATO = $2$s", USUARIO, id);
+
+		PreparedStatement prepStmt2 = conn.prepareStatement(sql2);
+		recursos.add(prepStmt2);
+		ResultSet rs2 = prepStmt2.executeQuery();
+				
+		while(rs2.next()) {
+			Long idActual = Long.parseLong(rs2.getString("IDSERVICIO"));
+			idsServActual.add(idActual);
+		}
+		contrato.setServicios(idsServActual);
 
 		return contrato;
 	}

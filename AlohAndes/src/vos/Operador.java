@@ -1,5 +1,7 @@
 package vos;
 
+import java.util.ArrayList;
+
 import org.codehaus.jackson.annotate.JsonProperty;
 
 public class Operador {
@@ -40,7 +42,14 @@ public class Operador {
 	/**
 	 * Vinculo con la universidad
 	 */
+	@JsonProperty(value = "vinculo")
 	private String vinculo;
+	
+	/**
+	 * Los alojamientos ofertados por este operador
+	 */
+	@JsonProperty(value = "idsAlojamientos")
+	private ArrayList<Long> idsAlojamientos; 
 	
 	//----------------------------------------------------------------------------------------------------------------------------------
 	// METODO CONSTRUCTOR
@@ -63,6 +72,7 @@ public class Operador {
 		this.registrocc = registrocc;
 		this.registrosi = registrosi;
 		this.vinculo = vinculo;
+		this.idsAlojamientos = new ArrayList<Long>();
 	}
 	
 
@@ -120,4 +130,12 @@ public class Operador {
 	}
 
 
+	public ArrayList<Long> getIdsAlojamientos() {
+		return idsAlojamientos;
+	}
+
+
+	public void setIdsAlojamientos(ArrayList<Long> idsAlojamientos) {
+		this.idsAlojamientos = idsAlojamientos;
+	}
 }

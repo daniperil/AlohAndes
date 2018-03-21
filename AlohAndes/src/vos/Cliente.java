@@ -1,6 +1,8 @@
 package vos;
 
 
+import java.util.ArrayList;
+
 import org.codehaus.jackson.annotate.JsonProperty;
 
 public class Cliente {
@@ -37,7 +39,12 @@ public class Cliente {
 	 */
 	@JsonProperty(value="passw")
 	private String passw;
-
+	
+	/**
+	 * Los contratos asociados
+	 */
+	@JsonProperty(value="idsContratos")
+	private ArrayList<Long> idsContratos;
 
 	//----------------------------------------------------------------------------------------------------------------------------------
 	// METODO CONSTRUCTOR
@@ -58,6 +65,7 @@ public class Cliente {
 		this.vinculo = vinculo;
 		this.login = login;
 		this.passw = passw;
+		idsContratos = new ArrayList<Long>();
 	}
 	//----------------------------------------------------------------------------------------------------------------------------------
 	// METODOS DE LA CLASE
@@ -112,5 +120,27 @@ public class Cliente {
 	public void setpassw(String passw) {
 		this.passw = passw;
 	}
+
+
+	public String getPassw() {
+		return passw;
+	}
+
+
+	public void setPassw(String passw) {
+		this.passw = passw;
+	}
+
+
+	public ArrayList<Long> getIdsContratos() {
+		return idsContratos;
+	}
+
+
+	public void setIdsContratos(ArrayList<Long> idsContratos) {
+		this.idsContratos = idsContratos;
+	}
+	
+	
 
 }
