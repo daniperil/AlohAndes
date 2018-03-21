@@ -171,8 +171,8 @@ public class OperadorService {
 	{
 		AlohAndesTM tm = new AlohAndesTM(getPath());
 		try {
-			Operador resp = tm.deleteOperador(idOperador);
-			return Response.status( 200 ).entity( resp ).build( );		
+			tm.deleteOperador(idOperador);
+			return Response.status( 200 ).entity( null ).build( );		
 		}catch( Exception e )
 		{
 			return Response.status( 412 ).entity( doErrorMessage( e ) ).build( );

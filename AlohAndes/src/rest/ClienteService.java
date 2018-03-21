@@ -166,8 +166,8 @@ public class ClienteService
 	{
 		AlohAndesTM tm = new AlohAndesTM(getPath());
 		try {
-			Cliente resp = tm.deleteCliente(idCliente);
-			return Response.status( 200 ).entity( resp ).build( );		
+			tm.deleteCliente(idCliente);
+			return Response.status( 200 ).entity( null ).build( );		
 		}catch( Exception e )
 		{
 			return Response.status( 412 ).entity( doErrorMessage( e ) ).build( );

@@ -105,7 +105,7 @@ public class DAOSeguro {
 	 * @throws SQLException SQLException Genera excepcion si hay error en la conexion o en la consulta SQL
 	 * @throws Exception Si se genera un error dentro del metodo.
 	 */
-	public void addSeguro(Seguro seguro) throws SQLException, Exception {
+	public void createSeguro(Seguro seguro) throws SQLException, Exception {
 
 		String sql = String.format("INSERT INTO %1$s.OPERADORES (NOMBRE, TIPOOPERADOR, REGISTROCC, REGISTROSI, VINCULO) VALUES (%2$s, '%3$s', '%4$s', '%5$s', '%6$s')", 
 				USUARIO  
@@ -147,9 +147,9 @@ public class DAOSeguro {
 	 * @throws SQLException SQLException Genera excepcion si hay error en la conexion o en la consulta SQL
 	 * @throws Exception Si se genera un error dentro del metodo.
 	 */
-	public void deleteSeguro(Seguro seguro) throws SQLException, Exception {
+	public void deleteSeguro(long idSeguro) throws SQLException, Exception {
 
-		String sql = String.format("DELETE FROM %1$s.OPERADORES WHERE IDOPERADOR= %2$d", USUARIO, seguro.getIdseguro());
+		String sql = String.format("DELETE FROM %1$s.OPERADORES WHERE IDOPERADOR= %2$d", USUARIO, idSeguro);
 
 		System.out.println(sql);
 

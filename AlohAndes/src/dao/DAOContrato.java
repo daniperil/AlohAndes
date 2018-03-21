@@ -133,7 +133,7 @@ public class DAOContrato {
 	 * @throws SQLException SQLException Genera excepcion si hay error en la conexion o en la consulta SQL
 	 * @throws Exception Si se genera un error dentro del metodo.
 	 */
-	public void addContrato(Contrato contrato) throws SQLException, Exception {
+	public void createContrato(Contrato contrato) throws SQLException, Exception {
 
 		String sql = String.format("INSERT INTO %1$s.CONTRATOS (FECHAINICIO, FECHAFIN, COSTOTOTAL, IDOPERADOR, IDALOJAMIENTO, ESTADO) VALUES (%2$s, '%3$s', '%4$s', '%5$s', '%6$s', '%7$s')", 
 				USUARIO,  
@@ -180,9 +180,10 @@ public class DAOContrato {
 	 * @throws SQLException SQLException Genera excepcion si hay error en la conexion o en la consulta SQL
 	 * @throws Exception Si se genera un error dentro del metodo.
 	 */
-	public void deleteContrato(Contrato contrato) throws SQLException, Exception {
+	public void deleteContrato(long idContrato) throws SQLException, Exception {
 
-		String sql = String.format("DELETE FROM %1$s.CONTRATOS WHERE IDCONTRATO = %2$d", USUARIO, contrato.getIdcontrato());
+
+		String sql = String.format("DELETE FROM %1$s.CONTRATOS WHERE IDCONTRATO = %2$d", USUARIO, idContrato);
 
 		System.out.println(sql);
 

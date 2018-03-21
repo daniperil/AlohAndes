@@ -105,7 +105,7 @@ public class DAOAlojamiento {
 	 * @throws SQLException SQLException Genera excepcion si hay error en la conexion o en la consulta SQL
 	 * @throws Exception Si se genera un error dentro del metodo.
 	 */
-	public void addAlojamiento(Alojamiento alojamiento) throws SQLException, Exception {
+	public void createAlojamiento(Alojamiento alojamiento) throws SQLException, Exception {
 
 		String sql = String.format("INSERT INTO %1$s.ALOJAMIENTOS (IDOPERADOR, TIPO, AMOBLADO, UBICACION, COSTODIA, CAPACIDAD, TAMANIO, COMPARTIDA) VALUES (%2$s, '%3$s', '%4$s', '%5$s', '%6$s', '%7$s', '%8$s', '%9$s')", 
 				USUARIO,  
@@ -154,9 +154,9 @@ public class DAOAlojamiento {
 	 * @throws SQLException SQLException Genera excepcion si hay error en la conexion o en la consulta SQL
 	 * @throws Exception Si se genera un error dentro del metodo.
 	 */
-	public void deleteAlojamiento(Alojamiento alojamiento) throws SQLException, Exception {
-
-		String sql = String.format("DELETE FROM %1$s.ALOJAMIENTOS WHERE IDALOJAMIENTO = %2$d", USUARIO, alojamiento.getIdalojamiento());
+	public void deleteAlojamiento(long idAlojamiento) throws SQLException, Exception {
+		
+		String sql = String.format("DELETE FROM %1$s.ALOJAMIENTOS WHERE IDALOJAMIENTO = %2$d", USUARIO, idAlojamiento);
 
 		System.out.println(sql);
 

@@ -167,8 +167,8 @@ public class SeguroService
 			{
 				AlohAndesTM tm = new AlohAndesTM(getPath());
 				try {
-					Seguro resp = tm.deleteSeguro(idSeguro);
-					return Response.status( 200 ).entity( resp ).build( );		
+					tm.deleteSeguro(idSeguro);
+					return Response.status( 200 ).entity( null ).build( );		
 				}catch( Exception e )
 				{
 					return Response.status( 412 ).entity( doErrorMessage( e ) ).build( );

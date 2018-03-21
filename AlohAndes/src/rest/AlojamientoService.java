@@ -163,12 +163,12 @@ public class AlojamientoService
 		@DELETE
 		@Path("{IdAlojamiento: \\d+}")
 		@Produces( { MediaType.APPLICATION_JSON } )
-		public Response borrarAlojamiento(@PathParam("IdAlojamiento") int idAlojamiento)
+		public Response borrarAlojamiento(@PathParam("IdAlojamiento") long idAlojamiento)
 		{
 			AlohAndesTM tm = new AlohAndesTM(getPath());
 			try {
-				Alojamiento resp = tm.deleteAlojamiento(idAlojamiento);
-				return Response.status( 200 ).entity( resp ).build( );		
+				tm.deleteAlojamiento(idAlojamiento);
+				return Response.status( 200 ).entity( null ).build( );		
 			}catch( Exception e )
 			{
 				return Response.status( 412 ).entity( doErrorMessage( e ) ).build( );

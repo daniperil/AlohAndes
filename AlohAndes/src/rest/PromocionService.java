@@ -167,8 +167,8 @@ public class PromocionService
 			{
 				AlohAndesTM tm = new AlohAndesTM(getPath());
 				try {
-					Promocion resp = tm.deletePromocion(idPromocion);
-					return Response.status( 200 ).entity( resp ).build( );		
+					tm.deletePromocion(idPromocion);
+					return Response.status( 200 ).entity( null ).build( );		
 				}catch( Exception e )
 				{
 					return Response.status( 412 ).entity( doErrorMessage( e ) ).build( );

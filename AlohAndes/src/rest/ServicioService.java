@@ -165,8 +165,8 @@ public class ServicioService
 			{
 				AlohAndesTM tm = new AlohAndesTM(getPath());
 				try {
-					Servicio resp = tm.deleteServicio(idServicio);
-					return Response.status( 200 ).entity( resp ).build( );		
+					tm.deleteServicio(idServicio);
+					return Response.status( 200 ).entity( null ).build( );		
 				}catch( Exception e )
 				{
 					return Response.status( 412 ).entity( doErrorMessage( e ) ).build( );

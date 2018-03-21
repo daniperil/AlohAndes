@@ -134,7 +134,7 @@ public class DAOOperador {
 	 * @throws SQLException SQLException Genera excepcion si hay error en la conexion o en la consulta SQL
 	 * @throws Exception Si se genera un error dentro del metodo.
 	 */
-	public void addOperador(Operador operador) throws SQLException, Exception {
+	public void createOperador(Operador operador) throws SQLException, Exception {
 
 		String sql = String.format("INSERT INTO %1$s.OPERADORES (NOMBRE, TIPOOPERADOR, REGISTROCC, REGISTROSI, VINCULO) VALUES (%2$s, '%3$s', '%4$s', '%5$s', '%6$s')", 
 				USUARIO,  
@@ -180,9 +180,9 @@ public class DAOOperador {
 	 * @throws SQLException SQLException Genera excepcion si hay error en la conexion o en la consulta SQL
 	 * @throws Exception Si se genera un error dentro del metodo.
 	 */
-	public void deleteOperador(Operador operador) throws SQLException, Exception {
+	public void deleteOperador(long idOperador) throws SQLException, Exception {
 
-		String sql = String.format("DELETE FROM %1$s.OPERADORES WHERE IDOPERADOR= %2$d", USUARIO, operador.getIdoperador());
+		String sql = String.format("DELETE FROM %1$s.OPERADORES WHERE IDOPERADOR= %2$d", USUARIO, idOperador);
 
 		System.out.println(sql);
 
