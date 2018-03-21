@@ -212,13 +212,19 @@ public class AlohAndesTM {
 			return operador;
 		}
 		
-		public Operador updateOperador()
+		public Operador createOperador(Operador operador)
 		{
 			return null;
 		}
-		public void deleteOperador() 
+		
+		
+		public Operador updateOperador(Operador operador)
 		{
-			
+			return null;
+		}
+		public Operador deleteOperador(int idOperador) 
+		{
+			return null;
 		}
 		
 		//CLIENTE
@@ -295,6 +301,21 @@ public class AlohAndesTM {
 			}
 			return cliente;
 		}
+		
+		public Cliente createCliente(Cliente cliente)
+		{
+			return null;
+		}
+		
+		public Cliente updateCliente(Cliente cliente)
+		{
+			return null;
+		}
+		public Cliente deleteCliente(int idCliente)
+		{
+			return null;
+		}
+		
 
 		//ALOJAMIENTO
 		
@@ -372,6 +393,20 @@ public class AlohAndesTM {
 			return alojamiento;
 		}
 		
+		public Alojamiento createAlojamiento(Alojamiento alojamiento)
+		{
+			return null;
+		}
+		public Alojamiento updateAlojamiento(Alojamiento alojamiento)
+		{
+			return null;
+		}
+		public Alojamiento deleteAlojamiento(int idAlojamiento)
+		{
+			return null;
+		}
+		
+		
 		//CONTRATO
 		
 		public List<Contrato> getAllContratos() throws Exception {
@@ -446,6 +481,21 @@ public class AlohAndesTM {
 				}
 			}
 			return contrato;
+		}
+		
+		public Contrato createContrato(Contrato contrato)
+		{
+			return null;
+		}
+		
+		public Contrato updateContrato(Contrato contrato)
+		{
+			return null;
+		}
+		
+		public Contrato deleteContrato(int idContrato)
+		{
+			return null;
 		}
 		
 		//PROMOCION
@@ -524,6 +574,22 @@ public class AlohAndesTM {
 			return promocion;
 		}
 		
+		public Promocion createPromocion(Promocion promocion)
+		{
+			return null;
+		}
+		
+		public Promocion updatePromocion(Promocion promocion)
+		{
+			return null;
+		}
+		
+		public Promocion deletePromocion(int idPromocion)
+		{
+			return null;
+		}
+		
+		
 		//SEGURO
 		
 		public List<Seguro> getAllSeguros() throws Exception {
@@ -600,6 +666,21 @@ public class AlohAndesTM {
 			return seguro;
 		}
 		
+		public Seguro createSeguro(Seguro seguro)
+		{
+			return null;
+		}
+		
+		public Seguro updateSeguro(Seguro seguro)
+		{
+			return null;
+		}
+		
+		public Seguro deleteSeguro(int idSeguro)
+		{
+			return null;
+		}
+		
 		//SERVICIO
 		
 		public List<Servicio> getAllServicios() throws Exception {
@@ -674,6 +755,19 @@ public class AlohAndesTM {
 				}
 			}
 			return servicio;
+		}
+		
+		public Servicio createServicio(Servicio servicio)
+		{
+			return null;
+		}
+		public Servicio updateServicio(Servicio servicio)
+		{
+			return null;
+		}
+		public Servicio deleteServicio(int idServicio)
+		{
+			return null;
 		}
 		
 		

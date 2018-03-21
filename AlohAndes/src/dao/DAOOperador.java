@@ -56,7 +56,7 @@ public class DAOOperador {
 	 * @throws SQLException Genera excepcion si hay error en la conexion o en la consulta SQL
 	 * @throws Exception Si se genera un error dentro del metodo.
 	 */
-	public ArrayList<Operador> getOperadors() throws SQLException, Exception {
+	public ArrayList<Operador> getOperadores() throws SQLException, Exception {
 		ArrayList<Operador> operadors = new ArrayList<Operador>();
 
 		String sql = String.format("SELECT * FROM %1$s.OPERADORES", USUARIO);
