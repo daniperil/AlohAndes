@@ -15,7 +15,7 @@ import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
-import tm.AlohAndesTransactionManager;
+import tm.AlohAndesTM;
 import vos.Operador;
 
 
@@ -65,7 +65,7 @@ public class OperadorService {
 	public Response getOperadores() {
 		
 		try {
-			AlohAndesTransactionManager tm = new AlohAndesTransactionManager(getPath());
+			AlohAndesTM tm = new AlohAndesTM(getPath());
 			
 			List<Operador> operadores;
 			//Por simplicidad, solamente se obtienen los primeros 50 resultados de la consulta
@@ -90,7 +90,7 @@ public class OperadorService {
 	public Response getOperadorById( @PathParam( "id" ) Long id )
 	{
 		try{
-			AlohAndesTransactionManager tm = new AlohAndesTransactionManager( getPath( ) );
+			AlohAndesTM tm = new AlohAndesTM( getPath( ) );
 			
 			Operador operador = tm.getOperadorById( id );
 			return Response.status( 200 ).entity( operador ).build( );			
