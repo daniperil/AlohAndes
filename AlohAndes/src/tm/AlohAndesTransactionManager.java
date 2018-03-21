@@ -9,6 +9,9 @@ import java.sql.SQLException;
 import java.util.List;
 import java.util.Properties;
 
+import dao.DAOOperador;
+import vos.Operador;
+
 
 public class AlohAndesTransactionManager {
 	//----------------------------------------------------------------------------------------------------------------------------------
@@ -119,21 +122,18 @@ public class AlohAndesTransactionManager {
 		// METODOS TRANSACCIONALES
 		//----------------------------------------------------------------------------------------------------------------------------------
 		
-		/**
-		 * Metodo que modela la transaccion que retorna todos los bebedores de la base de datos. <br/>
-		 * @return List<Bebedor> - Lista de bebedores que contiene el resultado de la consulta.
-		 * @throws Exception -  Cualquier error que se genere durante la transaccion
-		 */
-		public List<Bebedor> getAllBebedores() throws Exception {
-			DAOBebedor daoBebedor = new DAOBebedor();
-			List<Bebedor> bebedores;
+		
+		
+		public List<Operador> getAllOperadores() throws Exception {
+			DAOOperador daoop = new DAOOperador();
+			List<Operador> operadores;
 			try 
 			{
 				this.conn = darConexion();
-				daoBebedor.setConn(conn);
+				daoop.setConn(conn);
 				
 				//Por simplicidad, solamente se obtienen los primeros 50 resultados de la consulta
-				bebedores = daoBebedor.getBebedores();
+				operadores = daoop.getOperadors();
 			}
 			catch (SQLException sqlException) {
 				System.err.println("[EXCEPTION] SQLException:" + sqlException.getMessage());
@@ -147,7 +147,7 @@ public class AlohAndesTransactionManager {
 			} 
 			finally {
 				try {
-					daoBebedor.cerrarRecursos();
+					daoop.cerrarRecursos();
 					if(this.conn!=null){
 						this.conn.close();					
 					}
@@ -158,26 +158,20 @@ public class AlohAndesTransactionManager {
 					throw exception;
 				}
 			}
-			return bebedores;
+			return operadores;
 		}
-		
-		/**
-		 * Metodo que modela la transaccion que busca el bebedor en la base de datos que tiene el ID dado por parametro. <br/>
-		 * @param name -id del bebedor a buscar. id != null
-		 * @return Bebedor - Bebedor que se obtiene como resultado de la consulta.
-		 * @throws Exception -  cualquier error que se genere durante la transaccion
-		 */
-		public Bebedor getBebedorById(Long id) throws Exception {
-			DAOBebedor daoBebedor = new DAOBebedor();
-			Bebedor bebedor = null;
+
+		public Operador getOperadorById(Long id) throws Exception{
+			DAOOperador daoop = new DAOOperador();
+			Operador operador = null;
 			try 
 			{
 				this.conn = darConexion();
-				daoBebedor.setConn(conn);
-				bebedor = daoBebedor.findBebedorById(id);
-				if(bebedor == null)
+				daoop.setConn(conn);
+				operador = daoop.findOperadorById(id);
+				if(operador == null)
 				{
-					throw new Exception("El bebedor con el id = " + id + " no se encuentra persistido en la base de datos.");				
+					throw new Exception("El operador con el id = " + id + " no se encuentra persistido en la base de datos.");				
 				}
 			} 
 			catch (SQLException sqlException) {
@@ -192,7 +186,7 @@ public class AlohAndesTransactionManager {
 			} 
 			finally {
 				try {
-					daoBebedor.cerrarRecursos();
+					daoop.cerrarRecursos();
 					if(this.conn!=null){
 						this.conn.close();					
 					}
@@ -203,142 +197,12 @@ public class AlohAndesTransactionManager {
 					throw exception;
 				}
 			}
-			return bebedor;
+			return operador;
 		}
 		
-
-		/**
-		 * Metodo que modela la transaccion que agrega un bebedor a la base de datos. <br/>
-		 * <b> post: </b> se ha agregado el bebedor que entra como parametro <br/>
-		 * @param bebedor - el bebedor a agregar. bebedor != null
-		 * @throws Exception - Cualquier error que se genere agregando el bebedor
-		 */
-		public void addBebedor(Bebedor bebedor) throws Exception 
-		{
-			
-			DAOBebedor daoBebedor = new DAOBebedor( );
-			try
-			{
-				//TODO Requerimiento 3D: Obtenga la conexion a la Base de Datos (revise los metodos de la clase)
-
-				//TODO Requerimiento 3E: Establezca la conexion en el objeto DAOBebedor (revise los metodos de la clase DAOBebedor)
-
-				daoBebedor.addBebedor(bebedor);
-
-			}
-			catch (SQLException sqlException) {
-				System.err.println("[EXCEPTION] SQLException:" + sqlException.getMessage());
-				sqlException.printStackTrace();
-				throw sqlException;
-			} 
-			catch (Exception exception) {
-				System.err.println("[EXCEPTION] General Exception:" + exception.getMessage());
-				exception.printStackTrace();
-				throw exception;
-			} 
-			finally {
-				try {
-					daoBebedor.cerrarRecursos();
-					if(this.conn!=null){
-						this.conn.close();					
-					}
-				}
-				catch (SQLException exception) {
-					System.err.println("[EXCEPTION] SQLException While Closing Resources:" + exception.getMessage());
-					exception.printStackTrace();
-					throw exception;
-				}
-			}
+		public Operador updateOperador() {
+			return null;
 		}
-		
-		
-		/**
-		 * Metodo que modela la transaccion que actualiza en la base de datos al bebedor que entra por parametro.<br/>
-		 * Solamente se actualiza si existe el bebedor en la Base de Datos <br/>
-		 * <b> post: </b> se ha actualizado el bebedor que entra como parametro <br/>
-		 * @param bebedor - Bebedor a actualizar. bebedor != null
-		 * @throws Exception - Cualquier error que se genere actualizando al bebedor.
-		 */
-		public void updateBebedor(Bebedor bebedor) throws Exception 
-		{
-			DAOBebedor daoBebedor = new DAOBebedor( );
-			try
-			{
-				this.conn = darConexion();
-				daoBebedor.setConn( conn );
-				//TODO Requerimiento 5C: Utilizando los Metodos de DaoBebedor, verifique que exista el bebedor con el ID dado en el parametro. 
-				//						 Si no existe un bebedor con el ID ingresado, lance una excepcion en donde se explique lo sucedido
-				//						 De lo contrario, se actualiza la informacion del bebedor de la Base de Datos
-
-
-			}
-			catch (SQLException sqlException) {
-				System.err.println("[EXCEPTION] SQLException:" + sqlException.getMessage());
-				sqlException.printStackTrace();
-				throw sqlException;
-			} 
-			catch (Exception exception) {
-				System.err.println("[EXCEPTION] General Exception:" + exception.getMessage());
-				exception.printStackTrace();
-				throw exception;
-			} 
-			finally {
-				try {
-					daoBebedor.cerrarRecursos();
-					if(this.conn!=null){
-						this.conn.close();					
-					}
-				}
-				catch (SQLException exception) {
-					System.err.println("[EXCEPTION] SQLException While Closing Resources:" + exception.getMessage());
-					exception.printStackTrace();
-					throw exception;
-				}
-			}	
-		}
-		/**
-		 * Metodo que modela la transaccion que elimina de la base de datos al bebedor que entra por parametro. <br/>
-		 * Solamente se actualiza si existe el bebedor en la Base de Datos <br/>
-		 * <b> post: </b> se ha eliminado el bebedor que entra por parametro <br/>
-		 * @param Bebedor - bebedor a eliminar. bebedor != null
-		 * @throws Exception - Cualquier error que se genere eliminando al bebedor.
-		 */
-		public void deleteBebedor(Bebedor bebedor) throws Exception 
-		{
-			DAOBebedor daoBebedor = new DAOBebedor( );
-			try
-			{
-				this.conn = darConexion();
-				daoBebedor.setConn( conn );
-				//TODO Requerimiento 6D: Utilizando los Metodos de DaoBebedor, verifique que exista el bebedor con el ID dado en el parametro. 
-				//						 Si no existe un bebedor con el ID ingresado, lance una excepcion en donde se explique lo sucedido
-				//						 De lo contrario, se elimina la informacion del bebedor de la Base de Datos
-
-
-			}
-			catch (SQLException sqlException) {
-				System.err.println("[EXCEPTION] SQLException:" + sqlException.getMessage());
-				sqlException.printStackTrace();
-				throw sqlException;
-			} 
-			catch (Exception exception) {
-				System.err.println("[EXCEPTION] General Exception:" + exception.getMessage());
-				exception.printStackTrace();
-				throw exception;
-			} 
-			finally {
-				try {
-					daoBebedor.cerrarRecursos();
-					if(this.conn!=null){
-						this.conn.close();					
-					}
-				}
-				catch (SQLException exception) {
-					System.err.println("[EXCEPTION] SQLException While Closing Resources:" + exception.getMessage());
-					exception.printStackTrace();
-					throw exception;
-				}
-			}	
-		}
+		public void deleteOperador() {}
 
 }
