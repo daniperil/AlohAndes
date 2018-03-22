@@ -1,0 +1,15 @@
+insert into CLIENTES (NOMBRE, LOGIN, PASSW, VINCULO) values ('Joeann Rignoldes', 'jrignoldes0', 'amDBCOWTQ', 'egresado');
+insert into CLIENTES (NOMBRE, LOGIN, PASSW, VINCULO) values ('Chase Rudsdell', 'crudsdell1', 'V5dPwyN', 'estudiante');
+insert into CLIENTES (NOMBRE, LOGIN, PASSW, VINCULO) values ('Dixie Jouandet', 'djouandet2', 'oLFPpo', 'profInvitado');
+insert into CLIENTES (NOMBRE, LOGIN, PASSW, VINCULO) values ('Merwyn Eccles', 'meccles3', 'z65u5w', 'padre');
+insert into CLIENTES (NOMBRE, LOGIN, PASSW, VINCULO) values ('Bank Spira', 'bspira4', '4pgvgGL18uqb', 'egresado');
+insert into CLIENTES (NOMBRE, LOGIN, PASSW, VINCULO) values ('Garreth Levis', 'glevis5', 'QxkRLn9tyR', 'estudiante');
+insert into CLIENTES (NOMBRE, LOGIN, PASSW, VINCULO) values ('Devi Yerby', 'dyerby6', 'rng1c5I', 'estudiante');
+insert into CLIENTES (NOMBRE, LOGIN, PASSW, VINCULO) values ('Cissy Semaine', 'csemaine7', 'bfDCtaFXjNTk', 'profInvitado');
+insert into CLIENTES (NOMBRE, LOGIN, PASSW, VINCULO) values ('Davin Reolfi', 'dreolfi8', 'tZdDE2oLDXzP', 'egresado');
+insert into CLIENTES (NOMBRE, LOGIN, PASSW, VINCULO) values ('Emmalynn Bellard', 'ebellard9', 'CW8cbcu1iuJ', 'padre');
+insert into CLIENTES (NOMBRE, LOGIN, PASSW, VINCULO) values ('Stormy Pyer', 'spyera', 'mBAtq4ppjMer', 'estudiante');
+insert into CLIENTES (NOMBRE, LOGIN, PASSW, VINCULO) values ('Reggy Eteen', 'reteenb', 'epzddDIoE2', 'visitanteEv');
+insert into CLIENTES (NOMBRE, LOGIN, PASSW, VINCULO) values ('Bertrand Spridgen', 'bspridgenc', 'EqW3AOpmRfsX', 'maestro');
+insert into CLIENTES (NOMBRE, LOGIN, PASSW, VINCULO) values ('Glynnis Bossons', 'gbossonsd', 'kD2yMWo9xHcj', 'padre');
+insert into CLIENTES (NOMBRE, LOGIN, PASSW, VINCULO) values ('Rhody Horder', 'rhordere', 'xH6hm4EyEdn2', 'profInvitado');
