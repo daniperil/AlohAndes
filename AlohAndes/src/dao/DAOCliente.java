@@ -107,7 +107,7 @@ public class DAOCliente {
 		 * @throws SQLException SQLException Genera excepcion si hay error en la conexion o en la consulta SQL
 		 * @throws Exception Si se genera un error dentro del metodo.
 		 */
-		public void addCliente(Cliente cliente) throws SQLException, Exception {
+		public void createCliente(Cliente cliente) throws SQLException, Exception {
 
 			String sql = String.format("INSERT INTO %1$s.CLIENTES (NOMBRE, VINCULO, LOGIN, PASSW) VALUES (%2$s, '%3$s', '%4$s', '%5$s')", 
 					USUARIO,  
@@ -152,9 +152,9 @@ public class DAOCliente {
 		 * @throws SQLException SQLException Genera excepcion si hay error en la conexion o en la consulta SQL
 		 * @throws Exception Si se genera un error dentro del metodo.
 		 */
-		public void deleteCliente(Cliente cliente) throws SQLException, Exception {
-
-			String sql = String.format("DELETE FROM %1$s.CLIENTES WHERE IDCLIENTE = %2$d", USUARIO, cliente.getIdcliente());
+		public void deleteCliente(long  idCliente) throws SQLException, Exception {
+			
+			String sql = String.format("DELETE FROM %1$s.CLIENTES WHERE IDCLIENTE = %2$d", USUARIO, idCliente);
 
 			System.out.println(sql);
 

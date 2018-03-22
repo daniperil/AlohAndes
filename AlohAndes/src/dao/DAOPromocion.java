@@ -55,7 +55,7 @@ public class DAOPromocion {
 	 * @throws SQLException Genera excepcion si hay error en la conexion o en la consulta SQL
 	 * @throws Exception Si se genera un error dentro del metodo.
 	 */
-	public ArrayList<Promocion> getPromocions() throws SQLException, Exception {
+	public ArrayList<Promocion> getPromociones() throws SQLException, Exception {
 		ArrayList<Promocion> promocions = new ArrayList<Promocion>();
 
 		String sql = String.format("SELECT * FROM %1$s.PROMOCIONES", USUARIO);
@@ -105,7 +105,7 @@ public class DAOPromocion {
 	 * @throws SQLException SQLException Genera excepcion si hay error en la conexion o en la consulta SQL
 	 * @throws Exception Si se genera un error dentro del metodo.
 	 */
-	public void addPromocion(Promocion promocion) throws SQLException, Exception {
+	public void createPromocion(Promocion promocion) throws SQLException, Exception {
 
 		String sql = String.format("INSERT INTO %1$s.OPERADORES (NOMBRE, TIPOOPERADOR, REGISTROCC, REGISTROSI, VINCULO) VALUES (%2$s, '%3$s', '%4$s', '%5$s', '%6$s')", 
 				USUARIO  
@@ -146,9 +146,9 @@ public class DAOPromocion {
 	 * @throws SQLException SQLException Genera excepcion si hay error en la conexion o en la consulta SQL
 	 * @throws Exception Si se genera un error dentro del metodo.
 	 */
-	public void deletePromocion(Promocion promocion) throws SQLException, Exception {
+	public void deletePromocion(long idPromocion) throws SQLException, Exception {
 
-		String sql = String.format("DELETE FROM %1$s.OPERADORES WHERE IDOPERADOR= %2$d", USUARIO, promocion.getIdpromocion());
+		String sql = String.format("DELETE FROM %1$s.OPERADORES WHERE IDOPERADOR= %2$d", USUARIO, idPromocion);
 
 		System.out.println(sql);
 

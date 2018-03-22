@@ -106,7 +106,7 @@ public class DAOServicio {
 	 * @throws SQLException SQLException Genera excepcion si hay error en la conexion o en la consulta SQL
 	 * @throws Exception Si se genera un error dentro del metodo.
 	 */
-	public void addServicio(Servicio servicio) throws SQLException, Exception {
+	public void createServicio(Servicio servicio) throws SQLException, Exception {
 
 		String sql = String.format("INSERT INTO %1$s.SERVICIOS ( DESCRIPCION, COSTOEXTRA) VALUES (%2$s, '%3$s')", 
 				USUARIO, 
@@ -149,9 +149,9 @@ public class DAOServicio {
 	 * @throws SQLException SQLException Genera excepcion si hay error en la conexion o en la consulta SQL
 	 * @throws Exception Si se genera un error dentro del metodo.
 	 */
-	public void deleteServicio(Servicio servicio) throws SQLException, Exception {
+	public void deleteServicio(long idServicio) throws SQLException, Exception {
 
-		String sql = String.format("DELETE FROM %1$s.SERVICIOS WHERE ID = %2$d", USUARIO, servicio.getId());
+		String sql = String.format("DELETE FROM %1$s.SERVICIOS WHERE ID = %2$d", USUARIO, idServicio);
 
 		System.out.println(sql);
 
